@@ -1,0 +1,193 @@
+{
+  "en": {
+    "VERFICATION_CODE_MESSAGE": "Verification code for {{application}} is {{four_digit_verification_code}}",
+    "RESET_MESSAGE": "Reset password code for {{application}} is {{four_digit_verification_code}}",
+    "BLOCK_USER_MESSAGE": "Dear {{Name}}, you have been blocked from using {{application}}. Kindly contact the customer support for more information.",
+    "UNBLOCK_USER_MESSAGE": "Dear {{Name}}, you have been Unblocked from using {{application}}",
+    "FORGOT_PASSWORD_LINK": "Hey {{customerName}}, use this link to reset your password to login {{application}} {{forgotPasswordLink}}",
+    "ASSIGN_PICKER": {
+      "title": "New order has been assigned !",
+      "body": "Hey {{pickerName}}, a new order has been assigned to you !"
+    },
+    "ORDER_ARRIVED": {
+      "title": "Order Arrived",
+      "body": "Hey, A new order {{bookingId}} has arrived."
+    },
+    "ORDER_ACCEPTED": {
+      "title": "Order Accepted",
+      "body": "Hey {{customerName}}, your order has been accepted."
+    },
+    "ORDER_REJECTED": {
+      "title": "Order Rejected",
+      "body": "Hey {{customerName}}, your order has been rejected due to {{cancellationReason}}. Sorry we won't be able to deliver this order."
+    },
+    "ORDER_PICKED": {
+      "title": "Order Packed",
+      "body": "Your order is Packed."
+    },
+    "ORDER_SHIPPED": {
+      "title": "Order Shipped",
+      "body": "Hey {{customerName}}, your order is shipped."
+    },
+    "ORDER_COMPLETED": {
+      "title": "Order Completed",
+      "body": "Your order is delivered."
+    },
+    "ORDER_EDITED": {
+      "title": "Order Edited",
+      "body": "Hey {{pickerName}}, your order {{bookingId}} is edited."
+    },
+    "TEST_NOTIFICATION": {
+      "title": "Dummy test notification",
+      "body": "Hey {{customerName}}, ignore its just a test notification"
+    },
+    "SLOT_EDITED": {
+      "title": "Delivery time changed",
+      "body": "Hey {{customerName}}, your delivery time has been to {{deliveryTime}}, changed for Order Number {{bookingId}}"
+    },
+    "ITEMS_OUT_OF_STOCK": {
+      "title": "Items out of stock",
+      "body": "Hey {{customerName}}, Some of the products in your order are missing, please open to choose replacements!"
+    },
+    "ORDER_CANCELLED": {
+      "title": "Order cancelled ",
+      "body": "Hey {{pickerName}}, Order Number {{bookingId}} has been cancelled by customer."
+    },
+    "ITEMS_OUT_OF_STOCK_EMAIL": {
+      "title": "Items out of stock",
+      "body": "Hey {{customerName}}, some of the items you ordered for for Order Number {{bookingId}} are out of stock, Use this link to edit Order {{editOrderLink}}."
+    },
+    "INVOICE_EMAIL": {
+      "title": "Order invoice",
+      "body": "Hey {{customerName}}, some of the items you ordered for for Order Number {{bookingId}} are out of stock, Use this link to edit Order {{editOrderLink}}."
+    },
+    "CUSTOMER_ORDER_CANCELLED": {
+      "title": "Order cancelled",
+      "body": "Hey {{customerName}}, your order {{bookingId}} has been cancelled due to the unavailability of the items, you will get the refund if you have paid already."
+    },
+    "CUSTOMER_ORDER_EDITED": {
+      "title": "Order edited",
+      "body": "Hey {{customerName}}, your order {{bookingId}} has been edited due to the unavailability of the items, you will get the refund if you have paid already."
+    },
+    "ORDER_ACCEPTED_BY_DRIVER": {
+      "title": "Order accepted",
+      "body": "Hey {{customerName}}, your order {{bookingId}} has been assigned and {{driverName}} is your delivery agent. "
+    },
+
+    "ORDER_PICKED_BY_DRIVER": {
+      "title": "Order picked",
+      "body": "Hey {{customerName}}, your order {{bookingId}} picked by the {{driverName}} from the store.  "
+    },
+    "ORDER_ON_THE_WAY": {
+      "title": "Order on the way",
+      "body": "{{driverName}} is on the way with your order. "
+    },
+    "DIRVER_ON_THE_WAY_TO_STORRE": {
+      "title": "Driver reaching store ",
+      "body": "{{driverName}} is on the way to the store for your order {{bookingId}}."
+    },
+    "DRIVER_ARRIVED": {
+      "title": "Delivery agent  has arrived  ",
+      "body": "Hey {{customerName}}, {{driverName}} has arrived and wating at the door."
+    },
+    "STORE_ORDER_CANCELLED": {
+      "title": "Order cancelled",
+      "body": "Hey, The order {{bookingId}} has been cancelled"
+    }
+  },
+  "ar": {
+    "VERFICATION_CODE_MESSAGE": "كود التحقق هو {{four_digit_verification_code}}",
+    "RESET_MESSAGE": "إعادة تعيين رمز كلمة المرور {{four_digit_verification_code}}",
+    "BLOCK_USER_MESSAGE": "حبيب {{Name}}, تم حظرك من استخدام {{application}}. المعلومات يرجى الاتصال بدعم العملاء للحصول على مزيد من ",
+    "UNBLOCK_USER_MESSAGE": "حبيب {{Name}}, تم إلغاء حظرك من استخدام {{application}} ",
+    "FORGOT_PASSWORD_LINK": "مرحبًا {{customerName}} ، استخدم هذا الرابط لإعادة تعيين كلمة المرور لتسجيل الدخول {{forgotPasswordLink}}",
+    "ASSIGN_PICKER": {
+      "title": "تم تعيين أمر جديد !",
+      "body": "مرحيا {{pickerName}}, تم تعيين أمر جديد لك !"
+    },
+    "ORDER_ARRIVED": {
+      "title": "وصل الطلب",
+      "body": "مهلا ، لقد وصل أمر جديد."
+    },
+    "ORDER_ACCEPTED": {
+      "title": "الطلب المقبول",
+      "body": "مرحيا {{customerName}}, تم قبول طلبك."
+    },
+    "ORDER_REJECTED": {
+      "title": "تم رفض الأمر",
+      "body": "مرحيا {{customerName}}, تم رفض طلبك بسبب {{cancellationReason}}. آسف أننا لن نتمكن من تسليم هذا الطلب."
+    },
+    "ORDER_PICKED": {
+      "title": "ترتيب معبأة",
+      "body": " طلبك هو معبأة"
+    },
+    "ORDER_SHIPPED": {
+      "title": "طلب شحن",
+      "body": "مرحيا {{customerName}}, يتم شحن طلبك"
+    },
+    "ORDER_COMPLETED": {
+      "title": "تم إكمال الأمر",
+      "body": "يتم تسليم طلبك"
+    },
+    "ORDER_EDITED": {
+      "title": "ترتيب تحرير",
+      "body": "مرحيا {{pickerName}}, طلبك {{bookingId}} تم تحريره"
+    },
+    "TEST_NOTIFICATION": {
+      "title": "Dummy test notification",
+      "body": "مرحيا {{customerName}}, ignore its just a test notification"
+    },
+    "SLOT_EDITED": {
+      "title": "تغير وقت التسليم",
+      "body": "مرحيا {{customerName}}, وكان وقت التسليم الخاص بك إلى  {{deliveryTime}} , تم تغييره لرقم الطلب {{bookingId}}"
+    },
+    "ITEMS_OUT_OF_STOCK": {
+      "title": "البنود من المخزون",
+      "body": "مرحيا {{customerName}}, بعض المنتجات في طلبك مفقودة, الرجاء فتح لاختيار بدائل!"
+    },
+    "ORDER_CANCELLED": {
+      "title": "تم إلغاء الأمر ",
+      "body": "مرحيا {{pickerName}},  رقم الطلب {{bookingId}} تم إلغاء من قبل العميل "
+    },
+    "ITEMS_OUT_OF_STOCK_EMAIL": {
+      "title": "البنود من المخزون",
+      "body": "مرحيا {{customerName}}, بعض العناصر التي طلبتها لرقم الطلب {{bookingId}} هي من المخزون , استخدم هذا الرابط لتحرير الأمر {{editOrderLink}} "
+    },
+    "INVOICE_EMAIL": {
+      "title": "أمر الفاتورة",
+      "body": "مرحيا {{customerName}}, بعض العناصر التي طلبتها لرقم الطلب {{bookingId}} هي من المخزون , استخدم هذا الرابط لتحرير الأمر {{editOrderLink}} "
+    },
+    "CUSTOMER_ORDER_CANCELLED": {
+      "title": "تم إلغاء الأمر",
+      "body": "مرحيا {{customerName}}, طلبك   {{bookingId}} تم إلغاء بسبب عدم توفر العناصر , سوف تحصل على استرداد إذا كنت قد دفعت بالفعل  "
+    },
+    "CUSTOMER_ORDER_EDITED": {
+      "title": "ترتيب التحرير",
+      "body": "مرحيا {{customerName}}, طلبك   {{bookingId}} تم تحريرها بسبب عدم توافر العناصر , سوف تحصل على استرداد إذا كنت قد دفعت بالفعل  "
+    },
+    "ORDER_ACCEPTED_BY_DRIVER": {
+      "title": "الطلب المقبول",
+      "body": "مرحيا {{customerName}}, طلبك   {{bookingId}} تم تعيين و  {{driverName}}  هو وكيل التسليم الخاص بك "
+    },
+    "ORDER_PICKED_BY_DRIVER": {
+      "title": "الطلب الذي تم انتقاؤها",
+      "body": "مرحيا {{customerName}}, طلبك   {{bookingId}} اختارها  {{driverName}} من المتجر  "
+    },
+    "ORDER_ON_THE_WAY": {
+      "title": "الطلب في الطريق",
+      "body": "{{driverName}} في الطريق مع طلبك "
+    },
+    "DIRVER_ON_THE_WAY_TO_STORRE": {
+      "title": "وصول السائق إلى المتجر ",
+      "body": "{{driverName}} في الطريق إلى المتجر لطلبك {{bookingId}}."
+    },
+    "DRIVER_ARRIVED": {
+      "title": "وصل وكيل التسليم",
+      "body": "مرحيا {{customerName}}, {{driverName}} وصلت وتنتظر عند الباب "
+    },
+    "STORE_ORDER_CANCELLED": {
+      "title": "Order cancelled",
+      "body": "Hey, The order {{bookingId}} has been cancelled"
+    }
+  }
+}

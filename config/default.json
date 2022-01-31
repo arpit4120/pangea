@@ -1,0 +1,73 @@
+{
+  "port": 3001,
+  "dataBaseSettings": {
+    "mysql": {
+      "host": "localhost",
+      "user": "root",
+      "password": "admin",
+      "database": "pangea",
+      "multipleStatements": true
+    },
+    "mongo": {
+      "mongoUser": "root",
+      "mongoPassword": "password",
+      "mongoHost": "localhost",
+      "databaseName": "oyelabs"
+    }
+  },
+  "mongoCollections": {
+    "agenaCollection": "agendaCollection",
+    "retailStoreMapping": "",
+    "merchandiseMapping": "",
+    "supplierMapping": "",
+    "inventoryMapping": "",
+    "salesMapping": "",
+    "purchaseOrderMapping": ""
+  },
+  "s3Config": {
+    "accessKeyId": "AKIAI3L2LVFRQUITUJCA",
+    "secretKey": "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",
+    "bucketName": "foodies-bkt",
+    "S3URL": "https://d2wl0rug3f3g94.cloudfront.net/",
+    "region": "us-east-2",
+    "folders": {
+      "IMAGES": "images"
+    }
+  },
+  "emailCreds": {
+    "SENDGRID_API_KEY": "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",
+    "FROM": "noreply@moskenes.io"
+  },
+  "googleCreds": {
+    "CLIENT_ID": "1013808294037-bnr97612igtqqj0juq7v4is8ngbkbktm.apps.googleusercontent.com",
+    "CLIENT_SECRET": "TGc48a-hLwUZKE2xy58M0qut"
+  },
+  "autoIncrementTable": "tb_auto_increment",
+  "aseeraConfig": {
+    "sessionUrl": "https://epayment.areeba.com/api/rest/version/55/merchant/{merchantId}/session",
+    "checkoutUrl": "https://epayment.areeba.com/api/rest/version/55/merchant/{merchantId}/order/{orderId}",
+    "merchantId": "TEST222205758001",
+    "password": "58725cc306647f7d86629a66649485e8",
+    "defaultMerchantName": "Oye trolly merchant",
+    "paymentStrings": {
+      "SUCCESS": "SUCCESS",
+      "CAPTURED": "CAPTURED"
+    },
+    "finalCheckoutPages": {
+      "SUCCESS": "/customerPayment?paymentStatus=Success",
+      "FAILURE": "/customerPayment?paymentStatus=Failure"
+    }
+  },
+  "checkoutHost": "https://customer.my-trolley.com",
+  "apiLink": "https://api.my-trolley.com",
+  "twilioCredentials": {
+    "accountSid": "ACa55bcdb0d7daa5eeda3f5b2017a0be3d",
+    "authToken": "fafa8a36634d7bb89a6bee52887cdc1a",
+    "smsFromNumber": "+17135972339"
+  },
+  "fcmKey": "AAAAV-_lGdQ:APA91bEad5aT4ZvSvvX2VDvzBQn69Bx_HZPPFm7Cn_w1H06M4h_heP-E4EEmkGtlV0fehuHLcsQtLIjx3hXZnrjYpWeUwwkfy__V32oczR379Q56Q8REb_tZMkl2DJK3PUWz9l5KJBXT",
+  "forgotPasswordLink": "https://customer.my-trolley.com/passwordResetToken/{{passwordResetToken}}",
+  "goodFleetApiKey": "71412d18490b3f688cbbadb41359af67",
+  "goodFleetBaseUrl": "http://localhost:3326",
+  "trackingBaseLink": "http://13.245.63.240:3300"
+}
