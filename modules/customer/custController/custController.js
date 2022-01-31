@@ -1212,6 +1212,72 @@ async function getExplorePost(req, res) {
 }
 }
 
+async function getProfile(req, res) {
+  try {
+    var language = req.headers["content-language"] || constants.defaultLanguage;
+    req.customerDetails.accessToken = req.body["access-token"];
+
+    // loggs.log("DATA_JUST_BEFORE-->", req.enterpriceDetails);
+
+    const customer = await customerServices.getCustomer({
+      equalClause: {
+        customerId:req.query.customerId,
+        followCheck:req.customerDetails.customerId
+      },
+    });
+    if(!customer && !customer.length)
+    {
+      return responses.sendCustomErrorResponse(
+        res,
+        language,
+        constants.responseCodes.COMMON_ERROR_CODE,
+        constants.commonResponseMessages.CUSTOMER_ID_REQUIRED
+      );
+
+    }
+
+    return responses.sendCustomSuccessResponse(
+      res,
+      language,
+      customer || {}
+    );
+  } catch (error) {
+    loggs.logError("GET_MY_PROFILE", error);
+    return responses.sendCustomErrorResponse(res, language);
+  }
+}
+async function getSearchHints(req, res) {
+  try {
+    var language = req.headers["content-language"] || constants.defaultLanguage;
+    req.customerDetails.accessToken = req.body["access-token"];
+
+    // loggs.log("DATA_JUST_BEFORE-->", req.enterpriceDetails);
+
+    const customer = await customerServices.getCustomer({
+      search:req.query.search,
+      columns: "tb_customers.customerId,tb_customers.firstName,tb_customers.lastName,tb_customers.profilePicUrl"
+    });
+    if(!customer && !customer.length)
+    {
+      return responses.sendCustomErrorResponse(
+        res,
+        language,
+        constants.responseCodes.COMMON_ERROR_CODE,
+        constants.commonResponseMessages.CUSTOMER_ID_REQUIRED
+      );
+
+    }
+
+    return responses.sendCustomSuccessResponse(
+      res,
+      language,
+      customer || {}
+    );
+  } catch (error) {
+    loggs.logError("GET_MY_PROFILE", error);
+    return responses.sendCustomErrorResponse(res, language);
+  }
+}
 
 
 module.exports = {
@@ -1229,5 +1295,7 @@ module.exports = {
   likePost,
   follow,
   getPost,
-  getExplorePost
+  getExplorePost,
+  getProfile,
+  getSearchHints
 };

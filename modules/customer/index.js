@@ -121,18 +121,17 @@ router.get(
   customerController.getExplorePost
 )
 
-// router.get(
-//   "/getSearchHints",
-//   customerValidator.getSearchHints,
-//   sessionManagment.authenticateAccessToken,
-//   customerController.getSearchHints
-// )
+router.get(
+  "/getProfile",
+  customerValidator.getProfile,
+  sessionManagment.authenticateAccessToken,
+  customerController.getProfile
+);
 
-// router.get(
-//   "/getSearchResults",
-//   customerValidator.getSearchResults,
-//   sessionManagment.authenticateAccessToken,
-//   customerController.getSearchResults
-// )
-
+router.get(
+  "/getSearchHints",
+  customerValidator.getSearchHints,
+  sessionManagment.authenticateAccessToken,
+  customerController.getSearchHints
+)
 module.exports = router;

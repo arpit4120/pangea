@@ -123,8 +123,8 @@ function getCustomer(opts) {
     logg.log("OPTS_IN_GET_CUSTOMER=>", opts);
 
     let sql = ` SELECT ${
-      opts.columns || "tb_customers.*"
-    } FROM tb_customers WHERE 1 AND tb_customers.isDeleted = 0   `;
+      opts.columns || "tb_customers.* , count(tb_follows.customerId) as followers"
+    } FROM tb_customers LEFT JOIN tb_follows on tb_customers.customerId=tb_follows.followedcustomerId WHERE 1 AND tb_customers.isDeleted = 0   `;
     const params = [];
     if (opts.equalClause) {
       if (opts.equalClause.countryCode) {
@@ -192,10 +192,10 @@ function getCustomer(opts) {
           '"',
           ""
         )}%" OR  
-          firstName Like  "%${opts.searches[i].replace('"', "")}%" OR 
-          lastName Like  "%${opts.searches[i].replace('"', "")}%" OR 
-          email Like "%${opts.searches[i].replace('"', "")}%" OR
-          userName Like "%${opts.search.replace('"', "")}%" `;
+        tb_customers.firstName Like  "%${opts.searches[i].replace('"', "")}%" OR 
+        tb_customers.lastName Like  "%${opts.searches[i].replace('"', "")}%" OR 
+        tb_customers.email Like "%${opts.searches[i].replace('"', "")}%" OR
+        tb_customers.userName Like "%${opts.search.replace('"', "")}%" `;
       }
 
       sql += ` )  `;
@@ -204,10 +204,10 @@ function getCustomer(opts) {
     if (opts.search) {
       sql += ` AND (
           tb_customers.phoneNo   Like  "%${opts.search.replace('"', "")}%" OR  
-          firstName Like  "%${opts.search.replace('"', "")}%" OR 
-          lastName Like  "%${opts.search.replace('"', "")}%" OR 
-          email Like "%${opts.search.replace('"', "")}%" OR
-          userName Like "%${opts.search.replace('"', "")}%" ) `;
+          tb_customers.firstName Like  "%${opts.search.replace('"', "")}%" OR 
+          tb_customers.lastName Like  "%${opts.search.replace('"', "")}%" OR 
+          tb_customers.email Like "%${opts.search.replace('"', "")}%" OR
+          tb_customers.userName Like "%${opts.search.replace('"', "")}%" ) `;
     }
 
     if (opts.notEqualClause) {
@@ -217,7 +217,7 @@ function getCustomer(opts) {
       }
     }
 
-    sql += ` ORDER BY tb_customers.customerId DESC `;
+    sql += ` GROUP BY tb_customers.customerId ORDER BY tb_customers.customerId DESC `;
 
     if (opts.limit) {
       sql += ` LIMIT ? OFFSET ? `;
@@ -765,6 +765,28 @@ function getExplorePosts(opts) {
   }
 }
 
+function getCustomerProfile(opts) {
+  try {
+    logg.log("OPTS_IN_GET_CUSTOMER=>", opts);
+
+    let sql = ` SELECT 
+   tb_customers.* , count(tb_follows.customerId) as followers ,tb_follows.customerId = ${opts.followCheck} as follows 
+     FROM tb_customers LEFT JOIN tb_follows on tb_customers.customerId=tb_follows.followedcustomerId WHERE 1 AND tb_customers.isDeleted = 0  AND tb_cusomters.customerId=${opts.customerId} GROUP BY tb_customers.customerId`;
+    
+    if (opts.getStream) {
+      return connection.query(sql, params).stream();
+    }
+
+    return mysqlService.runMysqlQueryPromisified(
+      "GET_CUSTOMER",
+      sql,
+      params
+    );
+  } catch (error) {
+    throw error;
+  }
+}
+
 
 
 module.exports = {
@@ -778,5 +800,6 @@ module.exports = {
   addToLikedPost,
   addToFollow,
   getProfilePosts,
-  getExplorePosts
+  getExplorePosts,
+  getCustomerProfile
 };

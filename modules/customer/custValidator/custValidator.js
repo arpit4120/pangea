@@ -420,6 +420,49 @@ function getExplorePost(req, res, next) {
     next();
   }
 }
+function getProfile(req, res, next) {
+  logg.log("GET_MY_PROFILE=>", {
+    BODY: req.body,
+    HEADER: req.headers,
+  });
+  const language = req.headers["content-language"] || constants.defaultLanguage;
+  req.body["access-token"] = req.headers["access-token"];
+  req.body["content-language"] = language;
+  let schemaObject = {
+    "customerId":Joi.number().required(),
+    "access-token": Joi.string().required(),
+    "content-language": Joi.string().required(),
+  };
+  const schema = Joi.object().keys(schemaObject);
+  validate = validator.validateRequest(req.body, schema, res, language);
+  console.log("validateing", validate);
+
+  if (validate) {
+    next();
+  }
+}
+
+function getSearchHints(req, res, next) {
+  logg.log("GET_MY_PROFILE=>", {
+    BODY: req.body,
+    HEADER: req.headers,
+  });
+  const language = req.headers["content-language"] || constants.defaultLanguage;
+  req.body["access-token"] = req.headers["access-token"];
+  req.body["content-language"] = language;
+  let schemaObject = {
+    "search":Joi.string().required(),
+    "access-token": Joi.string().optional(),
+    "content-language": Joi.string().required(),
+  };
+  const schema = Joi.object().keys(schemaObject);
+  validate = validator.validateRequest(req.body, schema, res, language);
+  console.log("validateing", validate);
+
+  if (validate) {
+    next();
+  }
+}
 
 module.exports = {
   registerCustomer,
@@ -437,5 +480,7 @@ module.exports = {
   likePost,
   follow,
   getPost,
-  getExplorePost
+  getExplorePost,
+  getProfile,
+  getSearchHints
 };
