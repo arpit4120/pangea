@@ -1170,7 +1170,10 @@ async function getExplorePost(req, res) {
   try {
   let criteria = {
     equalClause: {
+      customerId:req.customerDetails.customerId
     },
+    limit:req.query.limit,
+    skip:req.query.skip
   };
 
   loggs.log("CRITERIA==>", criteria);
@@ -1219,7 +1222,7 @@ async function getProfile(req, res) {
 
     // loggs.log("DATA_JUST_BEFORE-->", req.enterpriceDetails);
 
-    const customer = await customerServices.getCustomer({
+    const customer = await customerServices.getCustomerProfile({
       equalClause: {
         customerId:req.query.customerId,
         followCheck:req.customerDetails.customerId

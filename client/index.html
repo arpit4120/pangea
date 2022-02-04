@@ -12,18 +12,12 @@
     console.log(data);
   });
   function login() {
-    socket.emit('admin_login', { "access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjozNiwiZW1haWwiOiJDTkB5b3BtYWlsLmNvbSIsInVzZXJUeXBlIjowLCJlbnRlcnByaWNlUmVmZXJlbmNlSWQiOiJjMDM2NzA1NmZjNjc5YTM3MGI1YjQ1MzEyOGMwOWYyMCIsImlhdCI6MTU5MzY5NTUxMiwiZXhwIjoxNTk0MzAwMzEyfQ.5x5UMZfPXfiQctKch9ImDuHieDo_kDpsKVZU1XXl7Yg" });
-  }
-  function login1() {
-    socket.emit('branch_login', { "access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJicmFuY2hJZCI6NCwiZW1haWwiOiJ0ZXN0aW5nc3RvcmVuYW1lMjEyQHlvcG1haWwuY29tIiwidXNlclR5cGUiOjEsImVudGVycHJpY2VSZWZlcmVuY2VJZCI6ImMwMzY3MDU2ZmM2NzlhMzcwYjViNDUzMTI4YzA5ZjIwIiwiaWF0IjoxNTkzNzA4NDYwLCJleHAiOjE1OTQzMTMyNjB9.X7pmKVpoXKWYhHOuWFZ2fTcnZnHIxuqFH2s1DTGjQJs" });
+    socket.emit('user', { "access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbklkIjozNiwiZW1haWwiOiJDTkB5b3BtYWlsLmNvbSIsInVzZXJUeXBlIjowLCJlbnRlcnByaWNlUmVmZXJlbmNlSWQiOiJjMDM2NzA1NmZjNjc5YTM3MGI1YjQ1MzEyOGMwOWYyMCIsImlhdCI6MTU5MzY5NTUxMiwiZXhwIjoxNTk0MzAwMzEyfQ.5x5UMZfPXfiQctKch9ImDuHieDo_kDpsKVZU1XXl7Yg" });
   }
   socket.on('connectToRoom',(data)=>{
     console.log(data);
   })
-  socket.on('create_grocery_booking',(data)=>{
-    console.log(data);
-  })
-  socket.on('cancel_grocery_booking',(data)=>{
+  socket.on('new_post',(data)=>{
     console.log(data);
   })
 </script>

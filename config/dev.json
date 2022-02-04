@@ -2,7 +2,7 @@
   "port": 3002,
   "dataBaseSettings": {
     "mysql": {
-      "host": "oyelabsdatabase-1.c18s6knp2qzo.us-east-2.rds.amazonaws.com",
+      "host": "",
       "user": "root",
       "password": "GWTwqbw$sGj5$gGygU",
       "database": "oyelab_product",
@@ -23,54 +23,5 @@
     "inventoryMapping": "",
     "salesMapping": "",
     "purchaseOrderMapping": ""
-  },
-  "s3Config": {
-    "accessKeyId": "",
-    "secretKey": "",
-    "bucketName": "",
-    "S3URL": "",
-    "region": "",
-    "folders": {
-      "IMAGES": ""
-    }
-  },
-  "emailCreds": {
-    "SENDGRID_API_KEY": "",
-    "FROM": ""
-  },
-  "googleCreds": {
-    "CLIENT_ID": "",
-    "CLIENT_SECRET": ""
-  },
-  "autoIncrementTable": "",
-  "aseeraConfig": {
-    "sessionUrl": "",
-    "checkoutUrl": "",
-    "merchantId": "",
-    "password": "",
-    "defaultMerchantName": "",
-    "paymentStrings": {
-      "SUCCESS": "",
-      "CAPTURED": ""
-    },
-    "finalCheckoutPages": {
-      "SUCCESS": "",
-      "FAILURE": ""
-    }
-  },
-  "checkoutHost": "",
-  "apiLink": "",
-  "twilioCredentials": {
-    "accountSid": "",
-    "authToken": "",
-    "smsFromNumber": ""
-  },
-
-  "fcmKey": "",
-  "forgotPasswordLink": "",
-
-  "goodFleetApiKey": "",
-  "goodFleetBaseUrl": "",
-  "trackingBaseLink": "",
-  "apiUrl": ""
+  }
 }
