@@ -4,7 +4,7 @@ const mysqlDb = require("./databases/mysql/mysql");
 const mongo = require("./databases/mongo/mongo");
 const logg = require("./services/logging");
 
-const agendaService = require("./services/agendaServices");
+//const agendaService = require("./services/agendaServices");
 
 async function initializeSerevrComponents() {
   try {

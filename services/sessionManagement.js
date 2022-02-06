@@ -4,7 +4,7 @@ const Jwt = Promise.promisifyAll(require("jsonwebtoken"));
 const constants = require("./../properties/constants");
 const logging = require("./../services/logging");
 const responses = require("./../services/responses");
-const autherisations = require("./../properties/autherisation");
+//const autherisations = require("./../properties/autherisation");
 const adminServices = require("./../modules/admin/adminServices/adminServices");
 const customerServices = require("./../modules/customer/custServices/custServices");
 async function createAccessToken(payload, time) {

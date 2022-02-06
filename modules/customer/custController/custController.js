@@ -6,7 +6,7 @@ const customerServices = require("./../custServices/custServices");
 const universalFunctions = require("./../../../services/universanFucntions");
 const sessionManager = require("./../../../services/sessionManagement");
 const mysqlService = require("./../../../databases/mysql/mysql");
-const smsService = require("./../../../services/smsServices");
+//const smsService = require("./../../../services/smsServices");
 
 const Handlebars = require("handlebars");
 
