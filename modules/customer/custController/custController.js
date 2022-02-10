@@ -1114,7 +1114,7 @@ async function getPost(req, res) {
 
   let criteria = {
     equalClause: {
-      customerId:req.querry.customerId
+      customerId:req.query.customerId
     },
   };
   

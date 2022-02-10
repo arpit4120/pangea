@@ -52,44 +52,6 @@ function registerCustomer(req, res, next) {
     next();
   }
 }
-function customerOnboard(req, res, next) {
-  logg.log("ONBOARD_VIA_PHONE=>", { BODY: req.body, HEADER: req.headers });
-  const language = req.headers["content-language"] || constants.defaultLanguage;
-  req.body["content-language"] = language;
-  let schemaObject = {
-    phoneNo: Joi.string().optional(),
-    firstName: Joi.string().optional(),
-    lastName: Joi.string().optional(),
-    deviceType: Joi.string()
-      .optional()
-      .valid([
-        constants.deviceTypes.IOS,
-        constants.deviceTypes.ANDROID,
-        constants.deviceTypes.WEB,
-      ]),
-    deviceToken: Joi.string().optional().trim(),
-    latitude: Joi.number().min(-90).max(90).optional(),
-    longitude: Joi.number().min(-180).max(180).optional(),
-    appVersion: Joi.string().optional().trim(),
-    timezone: Joi.string().optional(),
-    socialId: Joi.string().optional(),
-    socialMode: Joi.string().optional(),
-    enterpriceReferenceId: Joi.string().required(),
-    countryCode: Joi.string().optional(),
-    firstName: Joi.string().optional(),
-    customerReferralCode: Joi.string().optional(),
-    email: Joi.string().optional(),
-    isSocialMode: Joi.number().optional(),
-    "content-language": Joi.string().required(),
-  };
-
-  const schema = Joi.object().keys(schemaObject);
-  validate = validator.validateRequest(req.body, schema, res, language);
-
-  if (validate) {
-    next();
-  }
-}
 function customerLogin(req, res, next) {
   logg.log("CUSTOMER_LOGIN=>", req.body);
   const language = req.headers["content-language"] || constants.defaultLanguage;
@@ -384,11 +346,11 @@ function getPost(req, res, next) {
     customerId:Joi.number().optional(),
     limit:Joi.number().optional(),
     skip:Joi.number().optional(),
-    "access-token": Joi.string().required(),
-    "content-language": Joi.string().required(),
+    "access-token": Joi.string().optional(),
+    "content-language": Joi.string().optional(),
   };
   const schema = Joi.object().keys(schemaObject);
-  validate = validator.validateRequest(req.body, schema, res, language);
+  validate = validator.validateRequest(req.query, schema, res, language);
   console.log("validateing", validate);
 
   if (validate) {
@@ -409,11 +371,11 @@ function getExplorePost(req, res, next) {
     customerId:Joi.number().optional(),
     limit:Joi.number().optional(),
     skip:Joi.number().optional(),
-    "access-token": Joi.string().required(),
-    "content-language": Joi.string().required(),
+    "access-token": Joi.string().optional(),
+    "content-language": Joi.string().optional(),
   };
   const schema = Joi.object().keys(schemaObject);
-  validate = validator.validateRequest(req.body, schema, res, language);
+  validate = validator.validateRequest(req.query, schema, res, language);
   console.log("validateing", validate);
 
   if (validate) {
@@ -430,11 +392,11 @@ function getProfile(req, res, next) {
   req.body["content-language"] = language;
   let schemaObject = {
     "customerId":Joi.number().required(),
-    "access-token": Joi.string().required(),
-    "content-language": Joi.string().required(),
+    "access-token": Joi.string().optional(),
+    "content-language": Joi.string().optional(),
   };
   const schema = Joi.object().keys(schemaObject);
-  validate = validator.validateRequest(req.body, schema, res, language);
+  validate = validator.validateRequest(req.query, schema, res, language);
   console.log("validateing", validate);
 
   if (validate) {
@@ -453,10 +415,10 @@ function getSearchHints(req, res, next) {
   let schemaObject = {
     "search":Joi.string().required(),
     "access-token": Joi.string().optional(),
-    "content-language": Joi.string().required(),
+    "content-language": Joi.string().optional(),
   };
   const schema = Joi.object().keys(schemaObject);
-  validate = validator.validateRequest(req.body, schema, res, language);
+  validate = validator.validateRequest(req.query, schema, res, language);
   console.log("validateing", validate);
 
   if (validate) {
