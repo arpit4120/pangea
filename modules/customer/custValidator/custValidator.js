@@ -437,7 +437,6 @@ module.exports = {
   customerLogout,
   updateCustomer,
   customerLogin,
-  customerOnboard,
   createPost,
   likePost,
   follow,

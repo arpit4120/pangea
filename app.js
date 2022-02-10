@@ -26,6 +26,15 @@ require("./services/socket");
 
 const socketio = require("socket.io");
 
+//blockchain
+const pinataSDK = require("@pinata/sdk");
+const multer = require("multer");
+const fs = require("fs");
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+const path = require("path");
+
+
 const intialization = require("./intialization");
 const logg = require("./services/logging");
 const adminRoutes = require("./modules/admin/index");
@@ -90,6 +99,98 @@ app.get("/", (req, res) => {
 });
 //app.use('/api/v1', router);
 // app.use('/api/branch//shedule')
+
+//bloackchain
+const imageStorage = multer.diskStorage({
+  // Destination to store image
+  destination: "images",
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + path.extname(file.originalname));
+    // file.fieldname is name of the field (image)
+    // path.extname get the uploaded file extension
+  },
+});
+
+const pinata = pinataSDK(
+  "4a43ef92dedd8fd50862",
+  "f0aa468ee0dfe865bca5e7d9b47690bb10d2c69f9ccce0e4d3845344b72452c4"
+);
+
+pinata
+  .testAuthentication()
+  .then((result) => {
+    //handle successful authentication here
+    console.log(result);
+  })
+  .catch((err) => {
+    //handle error here
+    console.log(err);
+  });
+
+const imageUpload = multer({
+  storage: imageStorage,
+  limits: {
+    fileSize: 5000000, // 1000000 Bytes = 1 MB
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(png|jpg|jpeg)$/)) {
+      // upload only png and jpg format
+      return cb(new Error("Please upload a Image"));
+    }
+    cb(undefined, true);
+  },
+});
+
+app.post("/pinata_upload", imageUpload.single("image"), async (req, res) => {
+  var data = req.body;
+  console.log("Request Headers", req.headers);
+  const file = req.file;
+  console.log("server side: ", file);
+  try {
+    const P = file.path;
+    var readableStreamForFile = fs.createReadStream(P);
+    console.log(typeof readableStreamForFile);
+    var options = {
+      pinataMetadata: {
+        name: `${data.name}.img`,
+      },
+      pinataOptions: {
+        cidVersion: 0,
+      },
+    };
+    try {
+      var result = await pinata.pinFileToIPFS(readableStreamForFile, options);
+    } catch (e) {
+      console.log(e, "error");
+    }
+    console.log(result);
+    data.image = "https://gateway.pinata.cloud/ipfs/" + result.IpfsHash;
+    console.log(data);
+    options = {
+      pinataMetadata: {
+        name: `${data.name}.json`,
+      },
+      pinataOptions: {
+        cidVersion: 0,
+      },
+    };
+
+    try {
+      result = await pinata.pinJSONToIPFS(data, options);
+    } catch (e) {
+      console.log(e, "error");
+    }
+    console.log(result);
+    res.send(result.IpfsHash);
+  } catch (err) {
+    console.log(err);
+    return res.send(err);
+  }
+
+  // res.send("success");
+});
+
+
 intialization.initializeSerevrComponents();
 // os.then(mana=>{
 //   console.log(mana)
